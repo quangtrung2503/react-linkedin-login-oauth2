@@ -27,6 +27,7 @@ export function useLinkedIn({
   scope = 'r_emailaddress',
   state = '',
   closePopupMessage = 'User closed the popup',
+  target = '_blank'
 }: useLinkedInType) {
   const popupRef = useRef<Window>(null);
   const popUpIntervalRef = useRef<number>(null);
@@ -92,7 +93,7 @@ export function useLinkedIn({
     popupRef.current?.close();
     popupRef.current = window.open(
       getUrl(),
-      '_blank',
+      target,
       getPopupPositionProperties({ width: 600, height: 600 }),
     );
 
